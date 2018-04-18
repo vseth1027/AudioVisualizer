@@ -6,6 +6,7 @@ void ofApp::setup(){
     ofBackground(34);
     ofSetFrameRate(60);
     
+    
     sampleRate = 44100;
     bufferSize = 512;
     int channels = 1;
