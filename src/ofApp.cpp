@@ -14,6 +14,7 @@ void ofApp::setup(){
     audioAnalyzer.setup(sampleRate, bufferSize, channels);
     
     player.load("beatTrack.wav");
+    player.play();
     
     gui.setup();
     gui.setPosition(20, 150);
@@ -75,9 +76,11 @@ void ofApp::draw(){
     
     //-Single value Algorithms:
     
+    
     ofPushMatrix();
     ofTranslate(350, 0);
-    int mw = 250;
+    //int mw = 250;
+    int mw = 25;
     int xpos = 0;
     int ypos = 30;
     
@@ -88,8 +91,11 @@ void ofApp::draw(){
     string strValue = "RMS: " + ofToString(value, 2);
     ofDrawBitmapString(strValue, xpos, ypos);
     ofSetColor(ofColor::cyan);
-    ofDrawRectangle(xpos, ypos+5, value * mw, 10);
     
+    ofDrawCircle(rand() % 1024, rand() % 768, value/2 * mw);
+    //ofDrawRectangle(xpos, ypos+5, value * mw, 10);
+    
+    /*
     ypos += 50;
     ofSetColor(255);
     value = power;
@@ -296,6 +302,8 @@ void ofApp::draw(){
 
     ofPopMatrix();
     
+    
+    */
     //-Gui & info:
     
     gui.draw();
