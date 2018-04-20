@@ -14,7 +14,7 @@ void ofApp::setup(){
     audioAnalyzer.setup(sampleRate, bufferSize, channels);
     
     player.load("beatTrack.wav");
-    player.play();
+    //player.play();
     
     gui.setup();
     gui.setPosition(20, 150);
@@ -47,6 +47,8 @@ void ofApp::update(){
     oddToEven = audioAnalyzer.getValue(ODD_TO_EVEN, 0, smoothing);
     strongPeak = audioAnalyzer.getValue(STRONG_PEAK, 0, smoothing);
     strongDecay = audioAnalyzer.getValue(STRONG_DECAY, 0, smoothing);
+    
+    
     //Normalized values for graphic meters:
     pitchFreqNorm   = audioAnalyzer.getValue(PITCH_FREQ, 0, smoothing, TRUE);
     hfcNorm     = audioAnalyzer.getValue(HFC, 0, smoothing, TRUE);
@@ -80,7 +82,7 @@ void ofApp::draw(){
     ofPushMatrix();
     ofTranslate(350, 0);
     //int mw = 250;
-    int mw = 25;
+    int mw = 150;
     int xpos = 0;
     int ypos = 30;
     
@@ -89,30 +91,47 @@ void ofApp::draw(){
     ofSetColor(255);
     value = rms;
     string strValue = "RMS: " + ofToString(value, 2);
-    ofDrawBitmapString(strValue, xpos, ypos);
+    //ofDrawBitmapString(strValue, xpos, ypos);
     ofSetColor(ofColor::cyan);
     
-    ofDrawCircle(rand() % 1024, rand() % 768, value/2 * mw);
+    //ofDrawCircle(value * 1024, value * 768, value * mw);
+    
+    ofDrawCircle(400, 400, value * mw);
+    
     //ofDrawRectangle(xpos, ypos+5, value * mw, 10);
     
-    /*
-    ypos += 50;
+    
+    
+    
+   
+    //ypos += 50;
     ofSetColor(255);
     value = power;
+    
     strValue = "Power: " + ofToString(value, 2);
-    ofDrawBitmapString(strValue, xpos, ypos);
-    ofSetColor(ofColor::cyan);
-    ofDrawRectangle(xpos, ypos+5, value * mw, 10);
+    //ofDrawBitmapString(strValue, xpos, ypos);
+    
+    ofSetColor(ofColor::paleVioletRed);
+    
+    ofDrawCircle(500, 400, value * mw);
+    //ofDrawRectangle(xpos, ypos+5, value * mw, 10);
+    
+    
     
     ypos += 50;
     ofSetColor(255);
     value = pitchFreq;
     valueNorm = pitchFreqNorm;
     strValue = "Pitch Frequency: " + ofToString(value, 2) + " hz.";
-    ofDrawBitmapString(strValue, xpos, ypos);
-    ofSetColor(ofColor::cyan);
-    ofDrawRectangle(xpos, ypos+5, valueNorm * mw, 10);
+    //ofDrawBitmapString(strValue, xpos, ypos);
+    ofSetColor(ofColor::purple);
+    ofDrawRectangle(xpos, ypos+5, valueNorm * mw, 100);
     
+    std::cout << "The pitch freq is: " << value << std::endl;
+    
+    
+    
+     /*
     ypos += 50;
     ofSetColor(255);
     value = pitchConf;
