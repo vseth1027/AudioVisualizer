@@ -31,6 +31,9 @@ class ofApp : public ofBaseApp{
         int sampleRate;
         int bufferSize;
     
+        const static int kwidth = 1024;
+        const static int kheight = 768;
+    
         ofSoundBuffer soundBuffer;
     
         float rms;
