@@ -125,21 +125,18 @@ void ofApp::draw(){
     strValue = "Pitch Frequency: " + ofToString(value, 2) + " hz.";
     //ofDrawBitmapString(strValue, xpos, ypos);
     ofSetColor(ofColor::purple);
-    ofDrawRectangle(xpos, ypos+5, valueNorm * mw, 100);
+    ofDrawCircle(100, ((int)(valueNorm * mw) % 768), valueNorm *mw);
+
     
-    std::cout << "The pitch freq is: " << value << std::endl;
-    
-    
-    
-     /*
     ypos += 50;
     ofSetColor(255);
     value = pitchConf;
     strValue = "Pitch Confidence: " + ofToString(value, 2);
-    ofDrawBitmapString(strValue, xpos, ypos);
-    ofSetColor(ofColor::cyan);
-    ofDrawRectangle(xpos, ypos+5, value * mw, 10);
+    //ofDrawBitmapString(strValue, xpos, ypos);
+    ofSetColor(ofColor::orange);
+    ofDrawCircle(20, value * 768, mw / 3);
     
+    /*
     ypos += 50;
     ofSetColor(255);
     value = pitchSalience;
