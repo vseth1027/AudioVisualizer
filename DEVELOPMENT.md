@@ -14,3 +14,4 @@ I tested libraries ofxAudioAnalyzer with plan to use the All Algorithms Example 
     - Problem: How does one calcluate the sample rate, buffer size, and number of channels for an audio file (WAV or mp3)?
         - I can use a getter method for the sample rate and number of channels. 
         - Buffer size problem is preventing the program from being able to take any input file. 
+    - SOLVED: The 512 buffer size is fine for mp3 files, but not wav files. Prompt the user for an mp3 file instead. Keep looking for a way to find the buffer size for a wav file. 
