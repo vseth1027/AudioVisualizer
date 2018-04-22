@@ -11,4 +11,6 @@ I tested libraries ofxAudioAnalyzer with plan to use the All Algorithms Example 
 4/22/2018
 - Added image representation for the centroid. It is interesting to note that the circle image representation for the centroid attribute is almost exactly opposite of those for power and rms. 
 - Started researching ways to allow the user to specify files for the graphics. 
-    - Problem: How does one calcluate the sample rate and buffer size for an audio file (WAV or mp3)?
+    - Problem: How does one calcluate the sample rate, buffer size, and number of channels for an audio file (WAV or mp3)?
+        - I can use a getter method for the sample rate and number of channels. 
+        - Buffer size problem is preventing the program from being able to take any input file. 
