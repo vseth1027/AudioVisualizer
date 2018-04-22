@@ -7,3 +7,8 @@ I tested libraries ofxAudioAnalyzer with plan to use the All Algorithms Example 
 - Added images for the fields: rms, power, pitch frequency, and pitch confidence.
 - I wanted to have the pitch frequency value's image be displayed on the y-axis according to its value, but I was having trouble with that because the values range from 0 to 30000. This worked with pitch confidence though, since that value is always between 0 and 1. '
     - SOLVED: The normalized values convert the actual values to fall within 0-1, so I should be using the normalized value instead. 
+
+4/22/2018
+- Added image representation for the centroid. It is interesting to note that the circle image representation for the centroid attribute is almost exactly opposite of those for power and rms. 
+- Started researching ways to allow the user to specify files for the graphics. 
+    - Problem: How does one calcluate the sample rate and buffer size for an audio file (WAV or mp3)?
