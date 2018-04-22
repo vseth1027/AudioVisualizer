@@ -6,20 +6,16 @@ void ofApp::setup(){
     ofBackground(34);
     ofSetFrameRate(60);
     
-    player.load("beatTrack.wav");
+    player.load("blackdress.mp3");
     //player.play();
     
-    //sampleRate = 44100;
     sampleRate = player.getSampleRate();
     bufferSize = 512;
     //bufferSize = player.getBuffer().size() / 765;
     std::cout << "buffersize is : " << bufferSize << std::endl;
-    //int channels = 1;
     int channels = player.getNumChannels();
     
     audioAnalyzer.setup(sampleRate, bufferSize, channels);
-    
-    //audioAnalyzer.setup(player.getSampleRate(), player.getBuffer().size(), player.getNumChannels());
     
     gui.setup();
     gui.setPosition(20, 150);
@@ -34,7 +30,6 @@ void ofApp::update(){
     
     //-:Get buffer from sound player:
     soundBuffer = player.getCurrentSoundBuffer(bufferSize);
-    //soundBuffer = player.getCurrentSoundBuffer(player.getBuffer().size());
     
     //-:ANALYZE SOUNDBUFFER:
     audioAnalyzer.analyze(soundBuffer);
@@ -362,8 +357,17 @@ void ofApp::keyPressed(int key){
         case '6':
             player.load("noise.wav");
             break;
+        case '7':
+            player.load("blackdress.mp3");
+            break;
+        case '8':
+            player.load("losiento.mp3");
+            break;
+        case '9':
+            player.load("smoothjazz.mp3");
+            break;
             
-            
+
         default:
             break;
     }
