@@ -6,8 +6,10 @@ void ofApp::setup(){
     ofBackground(34);
     ofSetFrameRate(60);
     
-    player.load("blackdress.mp3");
-    //player.play();
+    string filepath = ofSystemTextBoxDialog("Input MP3 audio filepath", "");
+    
+    player.load(filepath);
+    player.play();
     
     sampleRate = player.getSampleRate();
     bufferSize = 512;
@@ -326,9 +328,9 @@ void ofApp::draw(){
     
     gui.draw();
     ofSetColor(255);
-    ofDrawBitmapString("ofxAudioAnalyzer\n\nALL ALGORITHMS EXAMPLE", 10, 32);
+    //ofDrawBitmapString("ofxAudioAnalyzer\n\nALL ALGORITHMS EXAMPLE", 10, 32);
     ofSetColor(ofColor::hotPink);
-    ofDrawBitmapString("Keys 1-6: Play audio tracks", 10, 100);
+    ofDrawBitmapString("Keys 1-9: Play audio tracks", 10, 100);
     
 
     
