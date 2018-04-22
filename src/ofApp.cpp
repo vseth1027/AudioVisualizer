@@ -125,7 +125,7 @@ void ofApp::draw(){
     strValue = "Pitch Frequency: " + ofToString(value, 2) + " hz.";
     //ofDrawBitmapString(strValue, xpos, ypos);
     ofSetColor(ofColor::purple);
-    ofDrawCircle(100, ((int)(valueNorm * mw) % 768), valueNorm *mw);
+    ofDrawCircle(100, valueNorm * ofApp::kheight, mw / 3);
 
     
     ypos += 50;
@@ -134,9 +134,22 @@ void ofApp::draw(){
     strValue = "Pitch Confidence: " + ofToString(value, 2);
     //ofDrawBitmapString(strValue, xpos, ypos);
     ofSetColor(ofColor::orange);
-    ofDrawCircle(20, value * 768, mw / 3);
+    ofDrawCircle(20, value * ofApp::kheight, mw / 3);
     
+    ypos += 50;
+    ofSetColor(255);
+    value = centroid;
+    valueNorm = centroidNorm;
+    strValue = "Centroid: " + ofToString(value, 2);
+    //ofDrawBitmapString(strValue, xpos, ypos);
+    ofSetColor(ofColor::blanchedAlmond);
+    ofDrawCircle(30, 400, valueNorm * mw);
+    //centroid corresponds to the "brightness" of the sound
+    //tends to be the opposite image of rms/power
+    
+
     /*
+   
     ypos += 50;
     ofSetColor(255);
     value = pitchSalience;
@@ -144,6 +157,7 @@ void ofApp::draw(){
     ofDrawBitmapString(strValue, xpos, ypos);
     ofSetColor(ofColor::cyan);
     ofDrawRectangle(xpos, ypos+5, value * mw, 10);
+    
     
     ypos += 50;
     ofSetColor(255);
@@ -171,16 +185,7 @@ void ofApp::draw(){
     ofSetColor(ofColor::cyan);
     ofDrawRectangle(xpos, ypos+5, valueNorm * mw, 10);
     
-    ypos += 50;
-    ofSetColor(255);
-    value = centroid;
-    valueNorm = centroidNorm;
-    strValue = "Centroid: " + ofToString(value, 2);
-    ofDrawBitmapString(strValue, xpos, ypos);
-    ofSetColor(ofColor::cyan);
-    ofDrawRectangle(xpos, ypos+5, valueNorm * mw, 10);
-    
-    ypos += 50;
+        ypos += 50;
     ofSetColor(255);
     value = dissonance;
     strValue = "Dissonance: " + ofToString(value, 2);
@@ -232,6 +237,7 @@ void ofApp::draw(){
     ofSetColor(ofColor::cyan);
     ofDrawRectangle(xpos, ypos+5, value * mw, 10);
     
+     /*
     ofPopMatrix();
     
     //-Vector Values Algorithms:
