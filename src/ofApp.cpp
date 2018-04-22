@@ -6,15 +6,20 @@ void ofApp::setup(){
     ofBackground(34);
     ofSetFrameRate(60);
     
+    player.load("beatTrack.wav");
+    //player.play();
     
-    sampleRate = 44100;
+    //sampleRate = 44100;
+    sampleRate = player.getSampleRate();
     bufferSize = 512;
-    int channels = 1;
+    //bufferSize = player.getBuffer().size() / 765;
+    std::cout << "buffersize is : " << bufferSize << std::endl;
+    //int channels = 1;
+    int channels = player.getNumChannels();
     
     audioAnalyzer.setup(sampleRate, bufferSize, channels);
     
-    player.load("beatTrack.wav");
-    //player.play();
+    //audioAnalyzer.setup(player.getSampleRate(), player.getBuffer().size(), player.getNumChannels());
     
     gui.setup();
     gui.setPosition(20, 150);
@@ -29,6 +34,7 @@ void ofApp::update(){
     
     //-:Get buffer from sound player:
     soundBuffer = player.getCurrentSoundBuffer(bufferSize);
+    //soundBuffer = player.getCurrentSoundBuffer(player.getBuffer().size());
     
     //-:ANALYZE SOUNDBUFFER:
     audioAnalyzer.analyze(soundBuffer);
@@ -93,31 +99,25 @@ void ofApp::draw(){
     string strValue = "RMS: " + ofToString(value, 2);
     //ofDrawBitmapString(strValue, xpos, ypos);
     ofSetColor(ofColor::cyan);
-    
     //ofDrawCircle(value * 1024, value * 768, value * mw);
-    
-    ofDrawCircle(400, 400, value * mw);
-    
+    ofDrawCircle(xpos, 400, value * mw);
     //ofDrawRectangle(xpos, ypos+5, value * mw, 10);
     
     
     
-    
-   
-    //ypos += 50;
+    xpos += 100;
+    ypos += 50;
     ofSetColor(255);
     value = power;
     
     strValue = "Power: " + ofToString(value, 2);
     //ofDrawBitmapString(strValue, xpos, ypos);
-    
     ofSetColor(ofColor::paleVioletRed);
-    
-    ofDrawCircle(500, 400, value * mw);
+    ofDrawCircle(xpos, 400, value * mw);
     //ofDrawRectangle(xpos, ypos+5, value * mw, 10);
     
     
-    
+    xpos += 100;
     ypos += 50;
     ofSetColor(255);
     value = pitchFreq;
@@ -125,17 +125,18 @@ void ofApp::draw(){
     strValue = "Pitch Frequency: " + ofToString(value, 2) + " hz.";
     //ofDrawBitmapString(strValue, xpos, ypos);
     ofSetColor(ofColor::purple);
-    ofDrawCircle(100, valueNorm * ofApp::kheight, mw / 3);
+    ofDrawCircle(xpos, valueNorm * ofApp::kheight, mw / 2);
 
-    
+    xpos += 100;
     ypos += 50;
     ofSetColor(255);
     value = pitchConf;
     strValue = "Pitch Confidence: " + ofToString(value, 2);
     //ofDrawBitmapString(strValue, xpos, ypos);
     ofSetColor(ofColor::orange);
-    ofDrawCircle(20, value * ofApp::kheight, mw / 3);
+    ofDrawCircle(xpos, value * ofApp::kheight, mw / 2);
     
+    xpos += 100;
     ypos += 50;
     ofSetColor(255);
     value = centroid;
@@ -143,13 +144,21 @@ void ofApp::draw(){
     strValue = "Centroid: " + ofToString(value, 2);
     //ofDrawBitmapString(strValue, xpos, ypos);
     ofSetColor(ofColor::blanchedAlmond);
-    ofDrawCircle(30, 400, valueNorm * mw);
+    ofDrawCircle(xpos, 400, valueNorm * mw);
     //centroid corresponds to the "brightness" of the sound
     //tends to be the opposite image of rms/power
     
 
+    xpos += 100;
+    ypos += 50;
+    ofSetColor(255);
+    value = dissonance;
+    strValue = "Dissonance: " + ofToString(value, 2);
+    //ofDrawBitmapString(strValue, xpos, ypos);
+    ofSetColor(ofColor::lime);
+    ofDrawCircle(xpos, ypos+5, value * mw);
+    
     /*
-   
     ypos += 50;
     ofSetColor(255);
     value = pitchSalience;
@@ -184,14 +193,6 @@ void ofApp::draw(){
     ofDrawBitmapString(strValue, xpos, ypos);
     ofSetColor(ofColor::cyan);
     ofDrawRectangle(xpos, ypos+5, valueNorm * mw, 10);
-    
-        ypos += 50;
-    ofSetColor(255);
-    value = dissonance;
-    strValue = "Dissonance: " + ofToString(value, 2);
-    ofDrawBitmapString(strValue, xpos, ypos);
-    ofSetColor(ofColor::cyan);
-    ofDrawRectangle(xpos, ypos+5, value * mw, 10);
     
     ypos += 50;
     ofSetColor(255);
@@ -237,7 +238,7 @@ void ofApp::draw(){
     ofSetColor(ofColor::cyan);
     ofDrawRectangle(xpos, ypos+5, value * mw, 10);
     
-     /*
+     
     ofPopMatrix();
     
     //-Vector Values Algorithms:
