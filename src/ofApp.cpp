@@ -28,6 +28,10 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
+    if (player.isPlaying() == false) {
+        exit();
+    }
+    
     ofSetWindowTitle(ofToString(ofGetFrameRate()));
     
     //-:Get buffer from sound player:
@@ -338,42 +342,42 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    player.stop();
-    switch (key) {
-       
-        case '1':
-            player.load("test440mono.wav");
-            break;
-        case '2':
-            player.load("flute.wav");
-            break;
-        case '3':
-            player.load("chord.wav");
-            break;
-        case '4':
-            player.load("cadence.wav");
-            break;
-        case '5':
-            player.load("beatTrack.wav");
-            break;
-        case '6':
-            player.load("noise.wav");
-            break;
-        case '7':
-            player.load("blackdress.mp3");
-            break;
-        case '8':
-            player.load("losiento.mp3");
-            break;
-        case '9':
-            player.load("smoothjazz.mp3");
-            break;
-            
-
-        default:
-            break;
-    }
-    player.play();
+//    player.stop();
+//    switch (key) {
+//       
+//        case '1':
+//            player.load("test440mono.wav");
+//            break;
+//        case '2':
+//            player.load("flute.wav");
+//            break;
+//        case '3':
+//            player.load("chord.wav");
+//            break;
+//        case '4':
+//            player.load("cadence.wav");
+//            break;
+//        case '5':
+//            player.load("beatTrack.wav");
+//            break;
+//        case '6':
+//            player.load("noise.wav");
+//            break;
+//        case '7':
+//            player.load("blackdress.mp3");
+//            break;
+//        case '8':
+//            player.load("losiento.mp3");
+//            break;
+//        case '9':
+//            player.load("smoothjazz.mp3");
+//            break;
+//            
+//
+//        default:
+//            break;
+//    }
+//    player.play();
     
 }
 //--------------------------------------------------------------
