@@ -1,6 +1,6 @@
 I tested libraries ofxAudioAnalyzer with plan to use the All Algorithms Example as a starting point for the project. I must now figure out how I would like the images to be displayed according to the audio values. 
 
-4/19/18
+4/19/2018
 - Changed audio to play at the beginning of the app. 
 - Modified draw to display the rms image as a circle.
 - I was looking for a C++ equivalent of the Java Math.random() function and found the rand() function. I used that to have the rms image appear at random locations on the app. 
@@ -15,3 +15,7 @@ I tested libraries ofxAudioAnalyzer with plan to use the All Algorithms Example 
         - I can use a getter method for the sample rate and number of channels. 
         - Buffer size problem is preventing the program from being able to take any input file. 
     - SOLVED: The 512 buffer size is fine for mp3 files, but not wav files. Prompt the user for an mp3 file instead. Keep looking for a way to find the buffer size for a wav file. 
+
+4/24/2018
+- Edited update() so that the window will close once the audio finishes playing. 
+- PROBLEM: Sometime the application is run from the terminal and the application starts buts fails. When this happens, the incorrect app logo is displayed in the dock (on mac) and in the program window itself. Why is the happening, and how can this be fixed?
