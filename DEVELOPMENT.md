@@ -19,3 +19,6 @@ I tested libraries ofxAudioAnalyzer with plan to use the All Algorithms Example 
 4/24/2018
 - Edited update() so that the window will close once the audio finishes playing. 
 - PROBLEM: Sometime the application is run from the terminal and the application starts buts fails. When this happens, the incorrect app logo is displayed in the dock (on mac) and in the program window itself. Why is the happening, and how can this be fixed?
+
+5/1/2018
+- Added image representation for pitch salience
