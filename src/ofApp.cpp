@@ -159,16 +159,17 @@ void ofApp::draw(){
     ofSetColor(ofColor::lime);
     ofDrawCircle(xpos, ypos+5, value * mw);
     
-    /*
+  
+    xpos += 100;
     ypos += 50;
     ofSetColor(255);
     value = pitchSalience;
     strValue = "Pitch Salience: " + ofToString(value, 2);
-    ofDrawBitmapString(strValue, xpos, ypos);
-    ofSetColor(ofColor::cyan);
-    ofDrawRectangle(xpos, ypos+5, value * mw, 10);
+    //ofDrawBitmapString(strValue, xpos, ypos);
+    ofSetColor(ofColor::cornflowerBlue);
+    ofDrawCircle(xpos, value * ofApp::kheight, mw / 3);
     
-    
+      /*
     ypos += 50;
     ofSetColor(255);
     value = inharmonicity;
