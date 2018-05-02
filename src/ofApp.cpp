@@ -162,10 +162,10 @@ void ofApp::keyPressed(int key){
             player.load("hotelcalifornia.mp3");
             break;
         case '3':
-            player.load("chord.wav");
+            player.load("secrets.mp3");
             break;
         case '4':
-            player.load("cadence.wav");
+            player.load("clairdelune.mp3");
             break;
         case '5':
             player.load("10sec.mp3");
