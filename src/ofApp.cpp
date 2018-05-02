@@ -156,10 +156,10 @@ void ofApp::keyPressed(int key){
     switch (key) {
        
         case '1':
-            player.load("test440mono.wav");
+            player.load("smooth.mp3");
             break;
         case '2':
-            player.load("flute.wav");
+            player.load("hotelcalifornia.mp3");
             break;
         case '3':
             player.load("chord.wav");
@@ -168,10 +168,10 @@ void ofApp::keyPressed(int key){
             player.load("cadence.wav");
             break;
         case '5':
-            player.load("beatTrack.wav");
+            player.load("10sec.mp3");
             break;
         case '6':
-            player.load("noise.wav");
+            player.load("koreanmilksong.mp3");
             break;
         case '7':
             player.load("blackdress.mp3");
