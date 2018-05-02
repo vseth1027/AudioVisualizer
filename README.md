@@ -1,4 +1,5 @@
-# CS 126 FinalProject
+# CS 126 FinalProject: Dancing Figures
+This project provides a colorful visual representation of audio based on the audio's attributes. The program prompts the user for a filepath to an mp3 file, and then analyzes and displays corresponding graphics based on the audio's rms, power, pitch frequency, pitch confidence, centroid, dissonance, and pitch salience. If the user allows the audio to end, the GUI will close. While the music is playing, the user has the option to press any of the number keys 1-9 to see the visual representations of mp3 files included in the project. 
 
 This project was created using the openframeworks library and the openframeworks addons [ofxAudioAnalyzer](https://github.com/leozimmerman/ofxAudioAnalyzer/blob/master/README.md#audio-file-player), [ofxAudioDecoder](https://github.com/kylemcdonald/ofxAudioDecoder), and ofxGui. The project was initially based off of the example-allAlgorithms from the ofxAudioAnalyzer addon. 
 
