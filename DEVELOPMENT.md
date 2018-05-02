@@ -1,4 +1,5 @@
-I tested libraries ofxAudioAnalyzer with plan to use the All Algorithms Example as a starting point for the project. I must now figure out how I would like the images to be displayed according to the audio values. 
+4/16/2018
+- I tested libraries ofxAudioAnalyzer with plan to use the All Algorithms Example as a starting point for the project. I must now figure out how I would like the images to be displayed according to the audio values. 
 
 4/19/2018
 - Changed audio to play at the beginning of the app. 
@@ -18,7 +19,8 @@ I tested libraries ofxAudioAnalyzer with plan to use the All Algorithms Example 
 
 4/24/2018
 - Edited update() so that the window will close once the audio finishes playing. 
-- PROBLEM: Sometime the application is run from the terminal and the application starts buts fails. When this happens, the incorrect app logo is displayed in the dock (on mac) and in the program window itself. Why is the happening, and how can this be fixed?
+- PROBLEM: Sometimes the application is run from the terminal and the application starts buts fails. When this happens, the incorrect app logo is displayed in the dock (on mac) and in the program window itself. Why is this happening, and how can this be fixed?
 
 5/1/2018
-- Added image representation for pitch salience
+- Added image representation for pitch salience.
+- Deleted .wav files and added the option to play some extra tracks when the number keys 1-9 are pressed. (modifed keyPressed() method) 
