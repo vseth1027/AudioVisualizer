@@ -28,3 +28,5 @@
 5/2/2018
 - Wrote README.md for project. 
 - PROBLEM: For some reason, the in text links do not show up correctly on github. I used the same syntax for the addon links in my proposal, but they are not working in the README. For now I have removed them. 
+- Added method incrementXandY() in order to make code more D.R.Y.
+- Added constants to eliminate magic numbers.
