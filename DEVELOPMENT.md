@@ -24,3 +24,7 @@
 5/1/2018
 - Added image representation for pitch salience.
 - Deleted .wav files and added the option to play some extra tracks when the number keys 1-9 are pressed. (modifed keyPressed() method) 
+
+5/2/2018
+- Wrote README.md for project. 
+- PROBLEM: For some reason, the in text links do not show up correctly on github. I used the same syntax for the addon links in my proposal, but they are not working in the README. For now I have removed them. 
