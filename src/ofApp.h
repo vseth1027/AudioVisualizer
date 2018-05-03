@@ -12,6 +12,8 @@ class ofApp : public ofBaseApp{
 		void update();
 		void draw();
         void exit();
+    
+        void incrementXandY(int &x, int deltax, int &y, int deltay);
 
 		void keyPressed(int key);
 		void keyReleased(int key);
@@ -33,6 +35,7 @@ class ofApp : public ofBaseApp{
     
         const static int kwidth = 1024;
         const static int kheight = 768;
+        const static int kyposition = 400;
     
         ofSoundBuffer soundBuffer;
     

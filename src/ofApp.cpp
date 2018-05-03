@@ -79,65 +79,63 @@ void ofApp::draw(){
     
     
     ofTranslate(350, 0);
-    int mw = 150;
+    int max_width = 150;
+    int half_max_width = max_width / 2;
+    int one_third_max_width = max_width / 3;
     int xpos = 0;
+    int deltax = 100;
     int ypos = 30;
+    int deltay = 50;
     
     float value, valueNorm;
     
     ofSetColor(255);
     value = rms;
     ofSetColor(ofColor::cyan);
-    ofDrawCircle(xpos, 400, value * mw);
+    ofDrawCircle(xpos, ofApp::kyposition, value * max_width);
     
-    xpos += 100;
-    ypos += 50;
+    incrementXandY(xpos, deltax, ypos, deltay);
     ofSetColor(255);
     value = power;
     ofSetColor(ofColor::paleVioletRed);
-    ofDrawCircle(xpos, 400, value * mw);
+    ofDrawCircle(xpos, ofApp::kyposition, value * max_width);
     
     
-    xpos += 100;
-    ypos += 50;
+    incrementXandY(xpos, deltax, ypos, deltay);
     ofSetColor(255);
     value = pitchFreq;
     valueNorm = pitchFreqNorm;
     ofSetColor(ofColor::purple);
-    ofDrawCircle(xpos, valueNorm * ofApp::kheight, mw / 2);
+    ofDrawCircle(xpos, valueNorm * ofApp::kheight, half_max_width);
 
-    xpos += 100;
-    ypos += 50;
+    incrementXandY(xpos, deltax, ypos, deltay);
     ofSetColor(255);
     value = pitchConf;
     ofSetColor(ofColor::orange);
-    ofDrawCircle(xpos, value * ofApp::kheight, mw / 2);
+    ofDrawCircle(xpos, value * ofApp::kheight, half_max_width);
     
-    xpos += 100;
-    ypos += 50;
+    incrementXandY(xpos, deltax, ypos, deltay);
     ofSetColor(255);
     value = centroid;
     valueNorm = centroidNorm;
     ofSetColor(ofColor::blanchedAlmond);
-    ofDrawCircle(xpos, 400, valueNorm * mw);
+    ofDrawCircle(xpos, ofApp::kyposition, valueNorm * max_width);
     //centroid corresponds to the "brightness" of the sound
     //tends to be the opposite image of rms/power
     
 
-    xpos += 100;
-    ypos += 50;
+    incrementXandY(xpos, deltax, ypos, deltay);
     ofSetColor(255);
     value = dissonance;
     ofSetColor(ofColor::lime);
-    ofDrawCircle(xpos, ypos+5, value * mw);
+    ofDrawCircle(xpos, ypos, value * max_width);
     
   
-    xpos += 100;
-    ypos += 50;
+    incrementXandY(xpos, deltax, ypos, deltay);
     ofSetColor(255);
     value = pitchSalience;
     ofSetColor(ofColor::cornflowerBlue);
-    ofDrawCircle(xpos, value * ofApp::kheight, mw / 3);
+    ofDrawCircle(xpos, value * ofApp::kheight, one_third_max_width);
     
     //-Gui & info:
     
@@ -146,8 +144,12 @@ void ofApp::draw(){
     ofSetColor(ofColor::hotPink);
     ofDrawBitmapString("Keys 1-9: Play other audio tracks", 0, 10);
     
+}
 
-    
+//--------------------------------------------------------------
+void ofApp::incrementXandY(int &x, int deltax, int &y, int deltay) {
+    x += deltax;
+    y += deltay;
 }
 
 //--------------------------------------------------------------
